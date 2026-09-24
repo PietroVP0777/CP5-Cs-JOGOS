@@ -1,0 +1,75 @@
+@baseUrl = https://localhost:7000/api/v1
+
+### Listar todos os jogos
+GET {{baseUrl}}/jogos
+
+### Filtrar jogos por gênero
+GET {{baseUrl}}/jogos?genero=RPG
+
+### Buscar um jogo pelo Id
+GET {{baseUrl}}/jogos/1
+
+### Criar um novo jogo
+POST {{baseUrl}}/jogos
+Content-Type: application/json
+
+{
+  "titulo": "Hollow Knight",
+  "genero": "Metroidvania",
+  "plataforma": "PC",
+  "anoLancamento": 2017,
+  "preco": 39.90,
+  "nota": 9.5,
+  "desenvolvedoraId": 1
+}
+
+### Atualizar um jogo existente
+PUT {{baseUrl}}/jogos/1
+Content-Type: application/json
+
+{
+  "titulo": "The Witcher 3: Wild Hunt - Complete Edition",
+  "genero": "RPG",
+  "plataforma": "PC",
+  "anoLancamento": 2015,
+  "preco": 59.90,
+  "nota": 9.9,
+  "desenvolvedoraId": 1
+}
+
+### Excluir um jogo
+DELETE {{baseUrl}}/jogos/4
+
+### -------------------------------------
+
+### Listar todas as desenvolvedoras
+GET {{baseUrl}}/desenvolvedoras
+
+### Buscar uma desenvolvedora pelo Id
+GET {{baseUrl}}/desenvolvedoras/1
+
+### Listar jogos de uma desenvolvedora
+GET {{baseUrl}}/desenvolvedoras/1/jogos
+
+### Criar uma nova desenvolvedora
+POST {{baseUrl}}/desenvolvedoras
+Content-Type: application/json
+
+{
+  "nome": "Team Cherry",
+  "paisOrigem": "Austrália",
+  "anoFundacao": 2014
+}
+
+### Atualizar uma desenvolvedora
+PUT {{baseUrl}}/desenvolvedoras/1
+Content-Type: application/json
+
+{
+  "nome": "CD Projekt Red S.A.",
+  "paisOrigem": "Polônia",
+  "anoFundacao": 1994
+}
+
+### Excluir uma desenvolvedora (só funciona se não tiver jogos vinculados)
+DELETE {{baseUrl}}/desenvolvedoras/4
